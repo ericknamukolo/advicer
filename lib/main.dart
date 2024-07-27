@@ -10,9 +10,6 @@ class Advicer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        home: Scaffold(
-      body: AdvicePage(),
-    ));
+    return const MaterialApp(home: AdvicePage());
   }
 }
