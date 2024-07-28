@@ -10,11 +10,14 @@ class AdvicerBloc extends Bloc<AdvicerEvent, AdvicerState> {
       try {
         emit(AdviceStateLoading());
 
-        Future.delayed(const Duration(seconds: 3), () {});
-        emit(AdviceStateLoaded(advice: 'Yo ma nigga'));
+        await Future.delayed(const Duration(seconds: 3), () {
+          emit(AdviceStateLoaded(advice: 'Yo ma nigga'));
+        });
       } catch (e) {
         emit(AdviceStateError(message: e.toString()));
       }
     });
+
+    on((event, emit) => {});
   }
 }

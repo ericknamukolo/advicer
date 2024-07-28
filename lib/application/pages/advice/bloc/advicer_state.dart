@@ -5,8 +5,6 @@ sealed class AdvicerState {}
 
 final class AdvicerInitial extends AdvicerState {}
 
-class AdviceInitial extends AdvicerState {}
-
 class AdviceStateLoading extends AdvicerState {}
 
 class AdviceStateLoaded extends AdvicerState {
