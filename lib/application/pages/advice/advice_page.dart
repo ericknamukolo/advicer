@@ -34,7 +34,6 @@ class AdvicePage extends StatelessWidget {
       body: BlocConsumer<AdvicerBloc, AdvicerState>(
         listener: (context, state) {},
         builder: (context, state) {
-          print(state);
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 30),
             child: Column(

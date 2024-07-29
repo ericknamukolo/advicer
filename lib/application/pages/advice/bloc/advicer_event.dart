@@ -1,6 +1,9 @@
 part of 'advicer_bloc.dart';
 
 @immutable
-sealed class AdvicerEvent {}
+sealed class AdvicerEvent extends Equatable {}
 
-class AdviceRequestedEvent extends AdvicerEvent {}
+class AdviceRequestedEvent extends AdvicerEvent {
+  @override
+  List<Object?> get props => [];
+}
