@@ -1,8 +1,9 @@
-import 'package:advicer/application/pages/advice/bloc/advicer_bloc.dart';
 import 'package:advicer/application/pages/advice/widgets/advice_field.dart';
 import 'package:advicer/application/pages/advice/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cubit/advicer_cubit.dart';
 
 class AdvicerPageWrapperProvider extends StatelessWidget {
   const AdvicerPageWrapperProvider({super.key});
@@ -10,7 +11,7 @@ class AdvicerPageWrapperProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AdvicerBloc(),
+      create: (context) => AdvicerCubit(),
       child: const AdvicePage(),
     );
   }
@@ -31,7 +32,7 @@ class AdvicePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: BlocConsumer<AdvicerBloc, AdvicerState>(
+      body: BlocConsumer<AdvicerCubit, AdvicerState>(
         listener: (context, state) {},
         builder: (context, state) {
           return Padding(
@@ -64,8 +65,7 @@ class AdvicePage extends StatelessWidget {
                 Center(
                   child: TextButton(
                     onPressed: () {
-                      BlocProvider.of<AdvicerBloc>(context)
-                          .add(AdviceRequestedEvent());
+                      BlocProvider.of<AdvicerCubit>(context).requestAdvice();
                     },
                     child: const Text('Get Advice'),
                   ),
